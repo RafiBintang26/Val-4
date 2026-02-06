@@ -23,7 +23,7 @@
       height: 100%;
     }
 
-    /* CENTER BENAR-BENAR */
+    /* Gambar center */
     .image-wrapper {
       position: absolute;
       top: 50%;
@@ -41,7 +41,7 @@
         0 0 120px rgba(123,15,18,0.6);
     }
 
-    /* Vignette tetap center */
+    /* Vignette */
     .image-wrapper::after {
       content: "";
       position: absolute;
@@ -54,17 +54,21 @@
       pointer-events: none;
     }
 
-    /* Panah */
+    /* Arrow */
     .arrow {
       position: absolute;
       left: 50%;
       bottom: 30px;
       transform: translateX(-50%);
-      font-size: 28px;
+      font-size: 32px;
       color: white;
-      cursor: pointer;
+      text-decoration: none;
       animation: bounce 1.5s infinite;
       user-select: none;
+    }
+
+    .arrow:hover {
+      opacity: 0.8;
     }
 
     @keyframes bounce {
@@ -81,15 +85,9 @@
       <img src="img/img (1).png" alt="valentine">
     </div>
 
-    <div class="arrow" onclick="nextPage()">→</div>
+    <!-- ARROW LANGSUNG KE LINK -->
+    <a href="https://val-5.vercel.app/" class="arrow">→</a>
   </div>
-
-  <script>
-    function nextPage() {
-      alert("Next 💕");
-      // window.location.href = "page2.html";
-    }
-  </script>
 
 </body>
 </html>
