@@ -1,88 +1,136 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Valentine</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Scrapbook Message</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #6d0707; /* Warna merah gelap sesuai gambar */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            padding: 20px;
+        }
 
-    body {
-      height: 100vh;
-      background: #7b0f12;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-    }
+        /* Container Pesan Utama */
+        .scrapbook-container {
+            position: relative;
+            max-width: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
 
-    .container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
+        /* Styling Potongan Kertas */
+        .note {
+            background: #fffef0;
+            color: #1a1a1a;
+            padding: 8px 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+            transform: rotate(var(--r)); /* Rotasi acak */
+            display: inline-block;
+            border: 1px solid #ddd;
+        }
 
-    /* Gambar center */
-    .image-wrapper {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+        /* Animasi Floating Stiker di Background */
+        .stickers-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-    .image-wrapper img {
-      max-width: 60vw;
-      max-height: 70vh;
-      display: block;
-      filter: saturate(1.05);
-      box-shadow:
-        0 0 60px rgba(123,15,18,0.8),
-        0 0 120px rgba(123,15,18,0.6);
-    }
+        .sticker {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.5;
+            animation: drift 6s linear infinite;
+        }
 
-    /* Vignette */
-    .image-wrapper::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at center,
-        rgba(0,0,0,0) 55%,
-        rgba(123,15,18,0.65) 100%
-      );
-      pointer-events: none;
-    }
+        @keyframes drift {
+            from { transform: translateY(100vh) rotate(0deg); }
+            to { transform: translateY(-10vh) rotate(360deg); }
+        }
 
-    /* Arrow tepat di bawah gambar */
-    .arrow {
-      position: absolute;
-      left: 50%;
-      bottom: -25px; /* jarak arrow dari bawah gambar */
-      transform: translateX(-50%);
-      font-size: 32px;
-      color: white;
-      text-decoration: none;
-      animation: bounce 1.5s infinite;
-      user-select: none;
-    }
+        /* Link Arrow */
+        .arrow-link {
+            margin-top: 50px;
+            text-decoration: none;
+            color: white;
+            font-size: 3rem;
+            animation: bounce 1.5s infinite;
+        }
 
-    .arrow:hover {
-      opacity: 0.8;
-    }
-
-    @keyframes bounce {
-      0%,100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(10px); }
-    }
-  </style>
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="image-wrapper">
-      <img src="img/img (1).png" alt="valentine">
-      <a href="https://val-5.vercel.app/" class="arrow">→</a>
+
+    <div class="stickers-bg" id="stickers"></div>
+
+    <div class="scrapbook-container">
+        <!-- Kalimat Pertama -->
+        <div class="note" style="--r: -2deg">truly</div>
+        <div class="note" style="--r: 3deg">madly</div>
+        <div class="note" style="--r: -1deg">deeply</div>
+        <div class="note" style="--r: 2deg">you</div>
+        <div class="note" style="--r: -3deg">complete</div>
+        <div class="note" style="--r: 1deg">me</div>
+        
+        <div style="width: 100%; height: 20px;"></div> <!-- Spasi -->
+
+        <!-- Kalimat Baru Sesuai Permintaan -->
+        <div class="note" style="--r: 2deg">I</div>
+        <div class="note" style="--r: -2deg; color: red;">❤️</div>
+        <div class="note" style="--r: 1deg">love</div>
+        <div class="note" style="--r: -1deg">you</div>
+        <div class="note" style="--r: 3deg">even</div>
+        <div class="note" style="--r: -2deg">when</div>
+        <div class="note" style="--r: 1deg">you</div>
+        <div class="note" style="--r: -3deg">are</div>
+        <div class="note" style="--r: 2deg">not</div>
+        <div class="note" style="--r: -1deg">at</div>
+        <div class="note" style="--r: 3deg">your</div>
+        <div class="note" style="--r: -2deg">best,</div>
+        <div class="note" style="--r: 1deg">sad</div>
+        <div class="note" style="--r: -3deg">and</div>
+        <div class="note" style="--r: 2deg">feel</div>
+        <div class="note" style="--r: -1deg">like</div>
+        <div class="note" style="--r: 4deg">no</div>
+        <div class="note" style="--r: -2deg">one</div>
+        <div class="note" style="--r: 1deg">cares</div>
+        <div class="note" style="--r: -3deg">or</div>
+        <div class="note" style="--r: 2deg">loves</div>
+        <div class="note" style="--r: -1deg">you</div>
     </div>
-  </div>
+
+    <a href="https://val-6.vercel.app" class="arrow-link">→</a>
+
+    <script>
+        const emojis = ['🧸', '🎀', '🍭', '💖', '💌', '🍓', '✨', '🐾'];
+        const bg = document.getElementById('stickers');
+
+        for (let i = 0; i < 20; i++) {
+            const s = document.createElement('div');
+            s.className = 'sticker';
+            s.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            s.style.left = Math.random() * 100 + 'vw';
+            s.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            s.style.animationDelay = (Math.random() * 5) + 's';
+            bg.appendChild(s);
+        }
+    </script>
 </body>
 </html>
